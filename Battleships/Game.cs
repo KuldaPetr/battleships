@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Battleships.Common;
+using Battleships.Entities;
 
 namespace Battleships
 {
@@ -20,7 +22,27 @@ namespace Battleships
         // returns: the number of ships sunk by the set of guesses
         public static int Play(string[] ships, string[] guesses)
         {
-            return 0;
+            var shipsSizes = ShipSize.Parse(ships);
+            var battleships = shipsSizes.Select(q => new Battleship(q)).ToArray();
+
+            var shootsDimensions = Dimension.Parse(guesses);
+            var shoots = shootsDimensions.Select(q => new Shoot(q)).ToArray();
+
+            var sunked = 0;
+
+            foreach (var shoot in shoots)
+            {
+                foreach (var battleship in battleships)
+                {
+                    if (battleship.Collide(shoot) && battleship.IsDestroyed())
+                    {
+                        sunked++;
+                    }
+                }
+            }
+
+            return sunked;
         }
     }
+
 }

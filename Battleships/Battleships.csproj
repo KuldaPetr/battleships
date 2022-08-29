@@ -41,8 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Dimension.cs" />
+    <Compile Include="Common\ICollidable.cs" />
+    <Compile Include="Common\ShipSize.cs" />
+    <Compile Include="Entities\Battleship.cs" />
+    <Compile Include="Entities\Shoot.cs" />
+    <Compile Include="Entities\IShoot.cs" />
+    <Compile Include="Entities\Ship.cs" />
+    <Compile Include="Exceptions\DimensionStringIsInIncorrectFormatException.cs" />
+    <Compile Include="Exceptions\ShipSizeIsInIncorrectFormatException.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\IShip.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
